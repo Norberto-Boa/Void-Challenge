@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react"
-import { apiPost } from "../services/postsApi";
-import { Post, PostProps } from "./Post";
+import { Post } from './Post';
+import { useEffect } from "react";
+import { fetchPosts } from "../features/PostSlice";
+import { useAppSelector, useAppDispatch } from '../hooks';
+// import { apiPost } from '../services/postsApi';
+import { PostDTO } from '../@types/Post';
 
 const Posts = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+  const posts: PostDTO[] = useAppSelector(state => state.posts.posts);
+  const dispatch = useAppDispatch();
+
 
   useEffect(() => {
-    apiPost({
-      method: "get"
-    }).then(res => setPosts(res.data)).catch(console.log);
-  })
+    dispatch(fetchPosts());
+  }), [];
 
   return (
     <div>
-      {posts.map(post => <Post id={post.id} body={post.body} title={post.title} userId={post.userId} />)}
+      {posts.map(post => <Post likes={post.Likes} id={post.id} caption={post.caption} name={post.author.name} />)}
     </div>
   )
 }

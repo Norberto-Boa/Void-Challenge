@@ -5,10 +5,15 @@ import Posts from "./components/Posts"
 function App() {
 
   return (
-    <div className="lg:px-96">
-      <Navbar />
-      <Header />
-      <Posts />
+    <div>
+      <div className="lg:px-96">
+        <Navbar />
+        <Header />
+      </div>
+      <div className="h-[1px] bg-zinc-400 " />
+      <div className="lg:px-96">
+        <Posts />
+      </div>
     </div>
   )
 }

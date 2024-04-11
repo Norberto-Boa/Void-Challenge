@@ -5,9 +5,10 @@ import CreateTextModal from "./CreateTextModal";
 
 
 const Header = () => {
+
   return (
-    <div className="mt-4 border-b-2 border-zinc-200">
-      <div className="container mx-auto grid grid-cols-12 items-center pb-8">
+    <div className="mt-4">
+      <div className="container grid grid-cols-12 items-center pb-8">
 
         {/* Avatar */}
         <Avatar
@@ -17,17 +18,17 @@ const Header = () => {
 
         {/* Search Bar */}
         <textarea
-          className="bg-zinc-300 border-zinc-700 col-span-9 h-10 rounded-full p-2"
+          className="bg-zinc-300 border-zinc-700 col-start-3 col-span-8 h-10 rounded-full p-2"
           placeholder="Begin a Post"
           cols={1}
           rows={1}
         ></textarea>
 
         {/* Buttons */}
-        <div className="col-span-2 flex justify-between text-white justify-self-end self-center gap-2 items-center">
+        <div className="col-span-1 col-start-12 flex justify-between text-white justify-self-end self-center gap-2 items-center">
           <Dialog.Root>
             <Dialog.Trigger>
-              <div className="bg-emerald-500 rounded-full p-2">
+              <div className="bg-emerald-500 rounded-full p-1">
                 <Plus size={18} />
               </div>
             </Dialog.Trigger>
@@ -35,9 +36,9 @@ const Header = () => {
             <CreateTextModal />
           </Dialog.Root>
 
-          <div className="bg-emerald-500 rounded-full p-2">
+          {/* <div className="bg-emerald-500 rounded-full p-1">
             <Plus size={18} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
